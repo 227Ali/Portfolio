@@ -1,13 +1,542 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdou Rahim ALI YAHOUZA | Portfolio Ingénieur Génie Électrique</title>
+    <meta name="description" content="Portfolio de Abdou Rahim ALI YAHOUZA - Technicien Supérieur en Génie Électrique, spécialiste Énergies Renouvelables et Régulation des Réseaux. Créateur de Electro-Technique Service.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f0f4f8;
+        }
+
+        /* Header avec dégradé électrique */
+        header {
+            background: linear-gradient(135deg, #0b3b5f 0%, #1a5a7a 100%);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header .badge {
+            display: inline-block;
+            background: #ff8c00;
+            padding: 5px 15px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            margin: 15px 5px;
+        }
+
+        header .btn-group {
+            margin-top: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ff8c00;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 30px;
+            margin: 5px 10px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #ff8c00;
+        }
+
+        .btn:hover {
+            background: #e07a00;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline:hover {
+            background: #ff8c00;
+        }
+
+        /* Container principal */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        /* Sections */
+        section {
+            background: white;
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        section h2 {
+            color: #0b3b5f;
+            border-left: 5px solid #ff8c00;
+            padding-left: 15px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        section h3 {
+            color: #1a5a7a;
+            margin: 15px 0 10px 0;
+        }
+
+        /* Grille de compétences */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .skill-cat {
+            flex: 1;
+            min-width: 200px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 5px;
+        }
+
+        .skill-cat h4 {
+            color: #0b3b5f;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #ff8c00;
+            display: inline-block;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: #e8f0f8;
+            color: #0b3b5f;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 4px;
+        }
+
+        /* Expériences */
+        .experience-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .experience-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #0b3b5f;
+        }
+
+        .experience-date {
+            color: #ff8c00;
+            font-size: 0.9rem;
+            margin: 5px 0;
+        }
+
+        .experience-list {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .experience-list li {
+            margin: 5px 0;
+        }
+
+        /* Projets */
+        .project-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ff8c00;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #0b3b5f;
+        }
+
+        /* Formations */
+        .formation-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .formation-item {
+            flex: 1;
+            min-width: 250px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        /* Contact */
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .contact-card {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .contact-card a {
+            color: #0b3b5f;
+            text-decoration: none;
+        }
+
+        .contact-card a:hover {
+            color: #ff8c00;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #0b3b5f;
+            color: white;
+            margin-top: 30px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            section {
+                padding: 20px;
+            }
+            .btn {
+                display: block;
+                margin: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Abdou Rahim ALI YAHOUZA</h1>
+            <p>Technicien Supérieur en Génie Électrique & Énergies Renouvelables</p>
+            <div>
+                <span class="badge">🎓 Futur Master en Génie Électrique</span>
+                <span class="badge">🏗️ Créateur de Electro-Technique Service</span>
+                <span class="badge">💻 Développeur Flutter</span>
+            </div>
+            <div class="btn-group">
+                <a href="cv.pdf" class="btn" download="CV_Abdou_Rahim.pdf">📄 Télécharger mon CV</a>
+                <a href="#contact" class="btn btn-outline">📧 Me contacter</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- À propos -->
+        <section>
+            <h2>🎯 À propos de moi</h2>
+            <p>Je suis un <strong>technicien supérieur et futur master en génie électrique</strong>, actuellement en attente de soutenance pour mon mémoire de master professionnel. Mon parcours m'a permis d'acquérir une double compétence : la maîtrise des outils de simulation des réseaux électriques (NEPLAN, Power Factory) et une expérience terrain concrète en maintenance de centrales solaires, groupes électrogènes et systèmes de froid industriel.</p>
+            <br>
+            <p>Passionné par l'<strong>intégration des énergies renouvelables</strong> dans les réseaux électriques existants, j'ai naturellement orienté mon mémoire sur la régulation du réseau HTB/HTA de la zone fleuve du Niger à l'horizon 2030. En parallèle, je crée mon entreprise <strong>Electro-Technique Service</strong> (RCCM et NIF obtenus) pour apporter des solutions clés en main.</p>
+            <br>
+            <p><strong>Ma valeur ajoutée ?</strong> Je ne suis pas qu'un théoricien. Je ne suis pas qu'un technicien. Je suis <strong>les deux</strong>.</p>
+        </section>
+
+        <!-- Compétences -->
+        <section>
+            <h2>🔧 Compétences techniques</h2>
+            <div class="skills-grid">
+                <div class="skill-cat">
+                    <h4>⚡ Réseau & Régulation</h4>
+                    <div>
+                        <span class="skill-tag">NEPLAN</span>
+                        <span class="skill-tag">Power Factory</span>
+                        <span class="skill-tag">SCADA</span>
+                        <span class="skill-tag">AVR / PSS</span>
+                    </div>
+                </div>
+                <div class="skill-cat">
+                    <h4>☀️ Énergies Renouvelables</h4>
+                    <div>
+                        <span class="skill-tag">PVsyst</span>
+                        <span class="skill-tag">SketchUp</span>
+                        <span class="skill-tag">Centrale solaire 30 MWc</span>
+                        <span class="skill-tag">Pompage solaire (SPIS)</span>
+                    </div>
+                </div>
+                <div class="skill-cat">
+                    <h4>🏭 Électrotechnique</h4>
+                    <div>
+                        <span class="skill-tag">Groupes électrogènes</span>
+                        <span class="skill-tag">CAT-Inspect / Praxedo</span>
+                        <span class="skill-tag">Maintenance préventive</span>
+                        <span class="skill-tag">Transformateurs</span>
+                    </div>
+                </div>
+                <div class="skill-cat">
+                    <h4>💻 Développement</h4>
+                    <div>
+                        <span class="skill-tag">Flutter / Dart</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">HTML / CSS / JS</span>
+                        <span class="skill-tag">Génération PDF</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projet Phare : Mémoire -->
+        <section>
+            <h2>📖 Projet phare : Mémoire de master</h2>
+            <div class="project-card">
+                <div class="project-title">Régulation du réseau électrique HTB/HTA de la zone fleuve intégrant les énergies renouvelables à l'horizon 2030</div>
+                <p><strong>Contexte :</strong> Le Niger fait face à un défi énergétique majeur : intégrer davantage d'énergies renouvelables (solaire, éolien) sans déstabiliser le réseau électrique existant. Ma région d'étude est la <strong>zone fleuve</strong>, zone stratégique du pays.</p>
+                <br>
+                <p><strong>Méthodologie :</strong></p>
+                <ul class="experience-list">
+                    <li>Modélisation du réseau sous <strong>NEPLAN</strong> (schéma unifilaire, paramétrage des lignes, transformateurs, centrales)</li>
+                    <li>Simulation de perturbations (court-circuits, variations de fréquence, chutes de tension)</li>
+                    <li>Proposition de stratégies de régulation : réglage des AVR, ajout de PSS, redispatching de production</li>
+                </ul>
+                <br>
+                <p><strong>Résultats attendus :</strong> Un réseau plus stable, capable d'absorber jusqu'à 30% d'énergie renouvelable sans black-out, avec des préconisations opérationnelles pour NIGELEC et l'ARSE.</p>
+                <p><strong>Outils :</strong> NEPLAN, Power Factory, Excel (analyse SCADA)</p>
+            </div>
+        </section>
+
+        <!-- Projet Entrepreneur -->
+        <section>
+            <h2>🏢 Projet entrepreneur : Electro-Technique Service</h2>
+            <div class="project-card">
+                <div class="project-title">Electro-Technique Service</div>
+                <p><strong>Statut :</strong> Entreprise en cours de création</p>
+                <p><strong>RCCM :</strong> NE-NIM-01-2025-A10-04046 | <strong>NIF :</strong> 149955/P</p>
+                <p><strong>Localisation :</strong> Bassora, Niamey – Niger</p>
+                <br>
+                <p><strong>Domaines d'intervention :</strong></p>
+                <div class="skills-grid" style="margin-top: 10px;">
+                    <div class="skill-cat" style="background: #e8f0f8;">
+                        <span class="skill-tag">☀️ Installation solaire PV</span>
+                        <span class="skill-tag">💧 Pompage solaire</span>
+                        <span class="skill-tag">📊 Audit énergétique</span>
+                        <span class="skill-tag">⚙️ Groupes électrogènes</span>
+                        <span class="skill-tag">🏠 Électricité bâtiment</span>
+                        <span class="skill-tag">❄️ Froid & climatisation</span>
+                        <span class="skill-tag">📐 Conception électrique</span>
+                    </div>
+                </div>
+                <br>
+                <p><strong>Vision :</strong> Devenir le partenaire de référence des entreprises, collectivités et particuliers pour toutes leurs solutions électriques et énergétiques au Niger.</p>
+            </div>
+        </section>
+
+        <!-- Projet Technique : App Flutter -->
+        <section>
+            <h2>📱 Projet technique : Application d'inspection Flutter</h2>
+            <div class="project-card">
+                <div class="project-title">Application d'inspection technique</div>
+                <p><strong>Problème identifié :</strong> Les rapports d'inspection des groupes électrogènes et équipements électriques sont encore souvent faits sur papier, ce qui génère des pertes de temps, des erreurs de saisie et un suivi difficile.</p>
+                <br>
+                <p><strong>Solution développée :</strong> Application mobile (Flutter) permettant de :</p>
+                <ul class="experience-list">
+                    <li>Créer des checklists personnalisées</li>
+                    <li>Saisir des observations techniques avec photos</li>
+                    <li>Gérer la signature du client</li>
+                    <li>Générer un rapport PDF professionnel automatiquement</li>
+                </ul>
+                <br>
+                <p><strong>Technologies :</strong> Flutter, Dart, Python, génération PDF, HTML/CSS</p>
+                <p><strong>État :</strong> En cours de développement – version beta opérationnelle pour les inspections groupes électrogènes.</p>
+            </div>
+        </section>
+
+        <!-- Expériences clés -->
+        <section>
+            <h2>💼 Expériences professionnelles</h2>
+            
+            <div class="experience-item">
+                <div class="experience-title">NIGELEC – Centrale Solaire 30 MWc Gorou Banda</div>
+                <div class="experience-date">1er Décembre 2024 au 31 Mars 2025 (4 mois)</div>
+                <ul class="experience-list">
+                    <li>Inspection quotidienne des équipements de production (PV, onduleurs, transformateurs)</li>
+                    <li>Diagnostic des pannes et maintenances correctives-conditionnelles</li>
+                    <li>Maintenance des équipements et postes de transformations électriques</li>
+                    <li>Relevé horaire des paramètres électriques et météorologiques au service SCADA</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-title">ARSE – Autorité de Régulation du Secteur de l'Energie du Niger</div>
+                <div class="experience-date">19 Décembre 2022 au 31 Janvier 2023 (1 mois) / 30 Septembre au 31 Octobre 2024 (1 mois)</div>
+                <ul class="experience-list">
+                    <li>Revue générale des textes législatifs et réglementaires du secteur électrique au Niger</li>
+                    <li>Initiation au logiciel de conception et de simulation des réseaux électriques sur NEPLAN</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-title">Manutention Africaine Niger / CAT (NEEMBA Niger)</div>
+                <div class="experience-date">01 Septembre au 31 Octobre 2022 (5 mois)</div>
+                <ul class="experience-list">
+                    <li>Installation et désinstallation des groupes électrogènes (Teksan, CAT, Perkins)</li>
+                    <li>Maintenances correctives et préventives des groupes électrogènes</li>
+                    <li>Initiation aux logiciels d'inspection (CAT-Inspect, Praxedo)</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-title">ESPERANCE SARL Burkina Faso-Niger</div>
+                <div class="experience-date">10 Mai au 16 Juin 2025 (2 mois)</div>
+                <ul class="experience-list">
+                    <li>Planification et suivi des interventions pour les maintenances préventives et correctives des groupes électrogènes</li>
+                    <li>Gestion des activités administratives et techniques</li>
+                    <li>Inspections et contrôles de la satisfaction client</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Formations -->
+        <section>
+            <h2>🎓 Formations académiques</h2>
+            <div class="formation-grid">
+                <div class="formation-item">
+                    <strong>2023-2025</strong>
+                    <p>Master Professionnel en Génie Electrique</p>
+                    <small>Ecole Privée d'Ingénierie du Niger (EPI-NIGER) – Attente soutenance</small>
+                </div>
+                <div class="formation-item">
+                    <strong>2022-2023</strong>
+                    <p>Licence Professionnelle GEER</p>
+                    <small>Génie Electrique & Energies Renouvelables – EPI-NIGER</small>
+                </div>
+                <div class="formation-item">
+                    <strong>2020-2022</strong>
+                    <p>BTS d'Etat en Génie Electrique</p>
+                    <small>Institut Universitaire de Technologie / UDDM Maradi</small>
+                </div>
+                <div class="formation-item">
+                    <strong>2019-2020</strong>
+                    <p>Baccalauréat série D</p>
+                    <small>Collège Mariama</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formations professionnelles -->
+        <section>
+            <h2>📚 Formations continues</h2>
+            <div class="formation-grid">
+                <div class="formation-item">
+                    <strong>2025-2026</strong>
+                    <p>Flutter Master – Android & iOS</p>
+                    <small>Alfajer Academi</small>
+                </div>
+                <div class="formation-item">
+                    <strong>2025</strong>
+                    <p>Pack PV – PVsyst & SketchUp</p>
+                    <small>JY-ELEC / Maroc</small>
+                </div>
+                <div class="formation-item">
+                    <strong>2025</strong>
+                    <p>Systèmes d'Irrigation à Energie Solaire (SPIS)</p>
+                    <small>GEDIN Niger – CSDAC</small>
+                </div>
+                <div class="formation-item">
+                    <strong>2024</strong>
+                    <p>Bootcamp – Science des données, IA, Cybersécurité</p>
+                    <small>DataMites, PECB, SKILLOGIC</small>
+                </div>
+                <div class="formation-item">
+                    <strong>2024</strong>
+                    <p>QHSE – Evaluation des risques professionnels</p>
+                    <small>Cabinet Inter-mark</small>
+                </div>
+                <div class="formation-item">
+                    <strong>2022</strong>
+                    <p>Anglais niveau A1</p>
+                    <small>Cabinet Langues Sans Frontières</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- Langues -->
+        <section>
+            <h2>🗣️ Langues</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">🇫🇷 Français – Courant</span>
+                <span class="skill-tag">🇳🇪 Hausa – Maternelle</span>
+                <span class="skill-tag">🇳🇪 Zarma – Maternelle</span>
+                <span class="skill-tag">🇬🇧 Anglais – Niveau A1 (en progression)</span>
+                <span class="skill-tag">🇷🇺 Russe – Niveau A1</span>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <h2>📫 Me contacter</h2>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <div style="font-size: 2rem;">📧</div>
+                    <p><strong>Email personnel</strong></p>
+                    <a href="mailto:abdourahimali461@gmail.com">abdourahimali461@gmail.com</a>
+                </div>
+                <div class="contact-card">
+                    <div style="font-size: 2rem;">🏢</div>
+                    <p><strong>Email professionnel</strong></p>
+                    <a href="mailto:contact.enime@gmail.com">contact.enime@gmail.com</a>
+                </div>
+                <div class="contact-card">
+                    <div style="font-size: 2rem;">📞</div>
+                    <p><strong>Téléphone</strong></p>
+                    <p>+227 92 66 44 36<br>+227 86 23 26 40</p>
+                </div>
+                <div class="contact-card">
+                    <div style="font-size: 2rem;">🔗</div>
+                    <p><strong>LinkedIn</strong></p>
+                    <a href="https://www.linkedin.com/in/abdoulrahimali" target="_blank">Abdoul Rahim Ali</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 Abdou Rahim ALI YAHOUZA - Technicien Supérieur en Génie Electrique & Energies Renouvelables</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">Mis à jour en Décembre 2025</p>
+    </footer>
+</body>
+</html>
